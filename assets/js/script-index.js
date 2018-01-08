@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  $("#a-arrow-container").remove();
-  $("#a-menu-container").remove();
+  $(".js-back").remove();
   printNews("Nuevas Recetas", newsParragraph);
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
