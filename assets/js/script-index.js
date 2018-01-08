@@ -5,6 +5,7 @@ $(document).ready(function() {
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
+  renderActivities(activities);
 
 });
 
@@ -64,17 +65,23 @@ var renderRecipe = (function(recipe) {
 /*
 * Función que se encarga de pintar todas las actividades
 */
-function renderActivities(activitiesArray) {
-	console.log('Activities: ', activitiesArray);
-}
+var renderActivities = (function(activitiesArray) {
+  for (var i = 0; i < activitiesArray.length; i++) {
+    renderActivity(activitiesArray[i]);
+  }
+  if (activitiesArray.length > 0) {
+    $(".wrapper-message").remove();
+  }
+  console.log('Activities: ', activitiesArray);
+});
 
 /*
 * Función que se encarga de pintar una actividad
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-activity.html"
 */
-function renderActivity(recipe) {
-	
-}
+var renderActivity = (function(recipe) {
+  
+});
 
 
