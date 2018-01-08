@@ -26,16 +26,21 @@ var printNews = (function(text, container) {
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
 */
-function renderHighlightedRecipes(recipesArray) {
+var renderHighlightedRecipes = (function(recipesArray) {
+  //Crea un array vacío
   var highlightedRecipes = [];
+  //Recorre la data
   for (var i = 0; i < recipesArray.length; i++) {
+    //Si la receta tiene la propiedad highlighted y su valor es true
     if (recipesArray[i].highlighted == true) {
+      //Esa receta pasará a estar dentro del array highlightedRecipes
       highlightedRecipes.push(recipesArray[i]);
     }
   }
+  //Ahora renderRecipe recibirá como parámetro el nuevo array
   renderRecipe(highlightedRecipes);
-	console.log('Recipes: ', highlightedRecipes);
-}
+  console.log('Recipes: ', highlightedRecipes);
+});
 
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
@@ -43,10 +48,17 @@ function renderHighlightedRecipes(recipesArray) {
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-recipe.html"
 */
-function renderRecipe(recipe) {
-	console.log('Voy a pintar la receta: ', recipe);
-}
-
+var renderRecipe = (function(recipe) {
+  // Recorre el array de recetas destacadas
+  for (var i = 0; i < recipe.length; i++) {
+    // Agrega al div con la clase list-recipes los siguientes elementos
+    $(".list-recipes").append(`<a class="item-recipe" href="#"><span class="attribution">
+      <span class="title-recipe">`+ recipe[i].title + `</span><span class="metadata-recipe">
+      <span class="author-recipe">`+ recipe[i].source.name + `</span><span class="bookmarks-recipe">
+      <span class="icon-bookmark"></span></span></span></span><img src="assets/img/recipes/320x350/`+ recipe[i].name +`.jpg"</a>` );
+    console.log('Voy a pintar la receta: ', recipe[i]);
+  }
+});
 
 
 /*
