@@ -27,7 +27,14 @@ var printNews = (function(text, container) {
 * marcado el atributo "highlighted" como TRUE
 */
 function renderHighlightedRecipes(recipesArray) {
-	console.log('Recipes: ', recipesArray);
+  var highlightedRecipes = [];
+  for (var i = 0; i < recipesArray.length; i++) {
+    if (recipesArray[i].highlighted == true) {
+      highlightedRecipes.push(recipesArray[i]);
+    }
+  }
+  renderRecipe(highlightedRecipes);
+	console.log('Recipes: ', highlightedRecipes);
 }
 
 /*
