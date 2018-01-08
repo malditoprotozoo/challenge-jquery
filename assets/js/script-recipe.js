@@ -2,6 +2,7 @@ $(document).ready(function() {
   console.log("Loaded!");
   $(".js-menu").remove();
   changeClass();
+  $(".js-back").attr("href", "index.html");
 });
 
 var changeClass = (function() {
